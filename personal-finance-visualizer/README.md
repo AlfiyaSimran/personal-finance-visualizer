@@ -1,39 +1,12 @@
-import { useState } from 'react';
-import AddTransactionForm from '../components/AddTransactionForm';
-import Dashboard from '../components/Dashboard';
-import SetBudgetForm from '../components/SetBudgetForm';
-import BudgetComparisonChart from '../components/BudgetComparisonChart';
-import SpendingInsights from '../components/SpendingInsights';
+# Personal Finance Visualizer
 
-const Home = () => {
-  const [transactions, setTransactions] = useState([]);
-  const [categoryBudgets, setCategoryBudgets] = useState({});
+## Description
+A web application that allows users to track their personal finances, set budgets, and visualize their expenses through interactive charts.
 
-  const addTransaction = (transaction) => {
-    setTransactions([...transactions, transaction]);
-  };
+## Features
+- Add transactions with description, amount, and category.
+- Set monthly budgets for different categories.
+- Visualize your expenses with interactive pie charts.
 
-  const setCategoryBudget = (budgets) => {
-    setCategoryBudgets(budgets);
-  };
-
-  return (
-    <div>
-      <h1>Personal Finance Tracker</h1>
-      <AddTransactionForm addTransaction={addTransaction} />
-      <SetBudgetForm setCategoryBudget={setCategoryBudget} />
-      
-      <Dashboard transactions={transactions} />
-
-      {Object.keys(categoryBudgets).length > 0 && (
-        <div>
-          <h2>Budget vs Actual</h2>
-          <BudgetComparisonChart transactions={transactions} categoryBudgets={categoryBudgets} />
-          <SpendingInsights transactions={transactions} categoryBudgets={categoryBudgets} />
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default Home;
+## Setup Instructions
+1. Clone the repository:
